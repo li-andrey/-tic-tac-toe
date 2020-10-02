@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from "./Board"
+import Form from "./Form"
 import { calculateWinner } from "../utils/calculateWinner"
 
 export default function Game(props) {
@@ -13,6 +14,9 @@ export default function Game(props) {
 
   const handleClick = (i) => {
     const newHistory = history.slice(0, stepNumber + 1);
+    console.log(history)
+    console.log(newHistory)
+
     const current = newHistory[newHistory.length - 1];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
@@ -67,6 +71,7 @@ export default function Game(props) {
         />
       </div>
       <div className="game-info">
+        <Form />
         <div>{status}</div>
         <ol>{moves}</ol>
       </div>

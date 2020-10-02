@@ -1,8 +1,12 @@
 import React from 'react';
 
 export default function Square(props) {
+  const handleClick = (e) => {
+    console.log(e.target)
+    props.onClick(e)
+  }
   return (
-    <button className="square" onClick={props.onClick}>
+    <button style={{ backgroundColor: "white", borderWidth: 4 }} className="square" onClick={handleClick}>
       {props.value}
     </button>
   );
